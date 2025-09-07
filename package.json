@@ -1,0 +1,27 @@
+{
+  "name": "imap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install:all" : "cd backend && npm install && cd ../frontend && npm install",
+    "start:infra" : "docker-compose -f infra/docker-compose.yml up -d",
+    "stop:infra" : "docker-compose -f infra/docker-compose.yml down",
+    "start:backend" : "cd backend && npm run dev",
+    "start:frontend" : "cd frontend && npm run dev",
+    "start:all" : "npm run start:infra & npm run start:backend & npm run start:frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Siser-Pratap/imap.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Siser-Pratap/imap/issues"
+  },
+  "homepage": "https://github.com/Siser-Pratap/imap#readme"
+}

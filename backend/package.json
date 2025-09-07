@@ -1,0 +1,37 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
+    "start" : "node dist/server.js",
+    "build" : "tsc -p .",
+    "prisma:migrate" : "prisma migrate dev --name init",
+    "prisma:generate" : "prisma generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@elastic/elasticsearch": "^9.1.1",
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "imapflow": "^1.0.195",
+    "node-fetch": "^3.3.2",
+    "openai": "^5.19.1",
+    "weaviate-client": "^3.8.1"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.15.0",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.1",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.15.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
