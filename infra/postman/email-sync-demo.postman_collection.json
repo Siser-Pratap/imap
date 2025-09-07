@@ -1,0 +1,52 @@
+{
+  "info": {
+    "name": "EmailSync Demo",
+    "_postman_id": "emailsync-demo-collection",
+    "description": "Collection for testing EmailSyncRAG backend (IMAP accounts, search, fetch)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Account (Mailtrap example)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"mailtrap1\",\n  \"host\": \"imap.mailtrap.io\",\n  \"port\": 993,\n  \"secure\": true,\n  \"username\": \"<YOUR_USER>\",\n  \"password\": \"<YOUR_PASS>\"\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/accounts", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","accounts"] }
+      }
+    },
+    {
+      "name": "List Accounts",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:3000/api/accounts", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","accounts"] }
+      }
+    },
+    {
+      "name": "Search Emails",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:3000/api/emails?q=test&size=10", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","emails"], "query": [{ "key": "q", "value": "test" }, { "key": "size", "value": "10" }] }
+      }
+    },
+    {
+      "name": "Get Email by docId",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:3000/api/emails/<docId>", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","emails","<docId>"] }
+      }
+    },
+    {
+      "name": "Get Email by Message-ID + account",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:3000/api/emails/<message-id>?account=1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api","emails","<message-id>"], "query": [{ "key": "account", "value": "1" }] }
+      }
+    }
+  ]
+}

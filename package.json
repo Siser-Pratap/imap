@@ -8,7 +8,7 @@
     "install:all" : "cd backend && npm install && cd ../frontend && npm install",
     "start:infra" : "docker-compose -f infra/docker-compose.yml up -d",
     "stop:infra" : "docker-compose -f infra/docker-compose.yml down",
-    "start:backend" : "cd backend && npm run dev",
+    "start:backend" : "cd backend && npm start",
     "start:frontend" : "cd frontend && npm run dev",
     "start:all" : "npm run start:infra & npm run start:backend & npm run start:frontend"
   },
